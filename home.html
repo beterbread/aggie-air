@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aggie Air</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="logo">AggieAir</h1>
+            <button class="log">Login</button>
+            <button class="reg">Sign up</button>
+        </div>
+        <section class="why-us">
+          <h2>Why Choose AggieAir</h2>
+          <p>At AggieAir, we are committed to providing our customers with the best flying experience possible. Here are just a few of the reasons why you should choose us for your next flight:</p>
+          <ul>
+              <li>Comfortable seating options with ample legroom</li>
+              <li>On-time departures and arrivals</li>
+              <li>Friendly and helpful crew members</li>
+              <li>In-flight entertainment system with a wide selection of movies, TV shows, and games</li>
+              <li>Health and safety measures to ensure a clean and safe flying experience</li>
+              <li>Affordable prices with no hidden fees</li>
+          </ul>
+          <p>Book your next flight with AggieAir and experience the difference for yourself!</p>
+      </section>
+        <form id="flight-booking-form">
+            <label for="departure-city">Departure City:</label>
+            <select id="departure-city" name="departureCity">
+              <option value="">Please Select</option>
+              <option value="New York">New York</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Houston">Houston</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="Philadelphia">Philadelphia</option>
+              <option value="San Antonio">San Antonio</option>
+              <option value="San Diego">San Diego</option>
+              <option value="Dallas">Dallas</option>
+              <option value="San Jose">San Jose</option>
+            </select>
+          
+            <label for="destination-city">Destination City:</label>
+            <select id="destination-city" name="destinationCity">
+              <option value="">Please Select</option>
+              <option value="New York">New York</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Houston">Houston</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="Philadelphia">Philadelphia</option>
+              <option value="San Antonio">San Antonio</option>
+              <option value="San Diego">San Diego</option>
+              <option value="Dallas">Dallas</option>
+              <option value="San Jose">San Jose</option>
+            </select>
+          
+            <label for="departure-date">Departure Date:</label>
+            <input type="date" id="departure-date" name="departureDate">
+          
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="returnDate">
+          
+            <label for="passenger-count">Number of Passengers:</label>
+            <input type="number" id="passenger-count" name="passengerCount">
+          
+            <input type="submit" value="Estimated Price">
+          </form>                        
+          <script>
+            const cities = {
+              "New York": { lat: 40.7128, lng: -74.0060 },
+              "Los Angeles": { lat: 34.0522, lng: -118.2437 },
+              "Chicago": { lat: 41.8781, lng: -87.6298 },
+              "Houston": { lat: 29.7604, lng: -95.3698 },
+              "Phoenix": { lat: 33.4484, lng: -112.0740 },
+              "Philadelphia": { lat: 39.9526, lng: -75.1652 },
+              "San Antonio": { lat: 29.4241, lng: -98.4936 },
+              "San Diego": { lat: 32.7157, lng: -117.1611 },
+              "Dallas": { lat: 32.7767, lng: -96.7970 },
+              "San Jose": { lat: 37.3382, lng: -121.8863 },
+            };
+          
+            document.querySelector("#flight-booking-form").addEventListener("submit", function(event) {
+              event.preventDefault();
+          
+              const departureCity = document.querySelector("#departure-city").value;
+              const destinationCity = document.querySelector("#destination-city").value;
+              const departureDate = document.querySelector("#departure-date").value;
+              const returnDate = document.querySelector("#return-date").value;
+              const passengerCount = document.querySelector("#passenger-count").value;
+          
+              if (!departureCity || !destinationCity || !departureDate || !returnDate || !passengerCount) {
+                alert("All fields are required");
+                return;
+              }
+          
+              const distance = calculateDistance(cities[departureCity], cities[destinationCity]);
+              const price = calculatePrice(distance, passengerCount);
+              alert(`Estimated price: $${price.toFixed(2)} for ${distance.toFixed(2)} miles. Contact us below if interested!`);
+            });
+          
+            function calculateDistance(departure, destination) {
+              const radlat1 = (Math.PI * departure.lat) / 180;
+              const radlat2 = (Math.PI * destination.lat) / 180;
+              const theta = departure.lng - destination.lng;
+              const radtheta = (Math.PI * theta) / 180;
+              let dist =
+                Math.sin(radlat1) * Math.sin(radlat2) +
+                Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+              dist = Math.acos(dist);
+              dist = (dist * 180) / Math.PI;
+              dist = dist * 60 * 1.1515;
+              return dist;
+            }
+          
+            function calculatePrice(distance, passengerCount) {
+              return distance * passengerCount * .13;
+            }
+          </script>   
+        <div class="contact-form">
+          <div class="form-header">Contact Us</div>
+          <form id="contact-form">
+            <input type="text" class="form-control" placeholder="Name" required>
+            <input type="email" class="form-control" placeholder="Email" required>
+            <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
+            <input type="submit" class="form-submit" value="Submit">
+          </form>
+        </div>
+    
+        <script>
+          // Add submit event listener to the form
+          const form = document.getElementById("contact-form");
+          form.addEventListener("submit", function(e) {
+            // Prevent the form from submitting
+            e.preventDefault();
+    
+            // Show the success message
+            alert("Contact form submitted successfully! We will get back to you as soon as possible.");
+          });
+        </script>      
+    </body>
+</html>

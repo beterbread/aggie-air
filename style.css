@@ -1,0 +1,162 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8B0000; /* Maroon */
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 2em;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.log, .reg {
+    background-color: #fff;
+    color: #8B0000;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 2vw;
+    cursor: pointer;
+}
+
+.log:hover, .reg:hover {
+    background-color: #ccc;
+}
+
+
+/* Add some general styling to the form */
+form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+/* Add some spacing between form elements */
+label, select, input {
+    margin: 10px 0;
+}
+
+/* Style the form labels */
+label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #800000; /* Maroon color */
+}
+
+/* Style the form select elements */
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Style the form input elements */
+input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Style the form submit button */
+input[type="submit"] {
+    width: 100%;
+    background-color: #800000; /* Maroon color */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffffcc; /* A&M Beige color */
+    color:#800000; /* Maroon color */
+}
+
+.why-us {
+    background-color: #e2e2e2;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .why-us h2 {
+    color: maroon;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .why-us ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .why-us li {
+    padding-left: 40px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .contact-form {
+    margin-top: 20px;
+    background-color: maroon;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-header {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .form-control {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    width: 98%;
+  }
+  .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 10px #fff;
+  }
+  .form-submit {
+    background-color: white;
+    color: maroon;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .form-submit:hover {
+    background-color: #fffbcc;
+  }
